@@ -25,7 +25,7 @@ int main() {
 			    rem <<= 1;
 	    }
 //        table[i] = rem;
-	    fprintf(arq_tabela, "%X, ", rem);
+	    fprintf(arq_tabela, "0x%X, ", rem);
 /*        if (i % 100000000 == 0){
             printf("%d\n", i);
         }*/
