@@ -17,7 +17,7 @@ int main() {
 
     for (i = 0; i < TAMANHO_TABELA; i++) { // 2^32
 	    rem = i;  /* remainder from polynomial division */
-	    for (j = 0; j < 32; j++) {
+	    for (j = 0; j < 16; j++) {
 		    if (rem & TOPBIT) {
 			    rem <<= 1;
 			    rem ^= 0x04C11DB7;
