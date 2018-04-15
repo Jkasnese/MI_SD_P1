@@ -81,8 +81,28 @@ br crc_loop
 final_xor:
   xori r2, r2, 0x0
 
+# Rotates bits to show crc from MSB to LSB
+roli r2, r2, 0x4
+
 stw r2, 0x810(r0)
 
-br -0x4 
- 
+# Ler botao em espera ocupada
 
+# r13 eh estado anterior do botao
+mov r13, r0
+
+# r12 lê estado atual do botão
+ler_botao:
+  ldb r12, 0x840(r0)
+
+beq r12, r13, ler_botao
+
+mov r13, r12
+
+beq r12, r0, ler_botao
+
+roli r2, r2, 0x4
+
+stw r2, 0x810
+
+br ler_botao
