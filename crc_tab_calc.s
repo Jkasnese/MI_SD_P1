@@ -50,12 +50,14 @@ movi r3, 0x0 # i
 
 movia r10, 0xFFFF # low hf mask
 
+movia r8, 0x1F4 # repeat 500 times
+
 crc_loop:
-  cmpgei r8, r3, 0x1F4 # repeat 500 times
-  bne r8, r0, final_xor
+  bge r8, r3, final_xor
 
 mov r4, r2 # half word "leaving" register tru right. To be xored with msg
 
+# gets r4 low half-word
 and r4, r4, r10
 
 srli r2, r2, 0x10 # removes first halfword
