@@ -81,12 +81,14 @@ crc_loop:
 
 mov r4, r2 # byte "leaving" register tru right. To be xored with msg
 
-# gets r2 low byte into r4
-and r4, r4, r10 # Não é mais rápido andi logo com inteiro?
+# gets r2 high byte into r4
+andhi r4, r4, 0xFF00 # Não é mais rápido andi logo com inteiro?
 
-srli r2, r2, 0x8 # removes less significant byte
+slli r2, r2, 0x8 # removes most significant byte
 
 ldbu r5, 0(r1) # Gets bytes from msg
+
+srli r4, r4, 0x18
 
 xor r4, r4, r5 # xor bytes from msg and reg
 
@@ -108,7 +110,7 @@ final_xor:
   xori r2, r2, 0x0
 
 # Rotates bits to show crc from MSB to LSB
-roli r2, r2, 0x4 # CONFERIR RESULTADO E MODO DE EXIBIÇÃO
+# roli r2, r2, 0x4 # CONFERIR RESULTADO E MODO DE EXIBIÇÃO
 
 stw r2, 0x810(r0) # CONFERIR ENDEREÇO LED
 
@@ -129,7 +131,18 @@ bne r12, r0, ler_botao
 
 # Se passou daqui, da um delayzinho (debounce) e lê de novo.
 
+movi r14, 100 # r14 armazena um valor a ser decrementado para alcançar um delay
+
+delay:
+subi r14, r14, 1
+bne r14, r0, delay
+
 # Se a nova leitura for igual significa que o sinal estabilizou e é pra passar mesmo, então segue o código.
+
+ldb r14, 0x840(r0)
+
+bne r14, r12, ler_botao
+
 # Se a leitura for diferente, ou era ruído (volta pra ler_botao) ou tá muito grande o delay, a gente diminui o delay
 
 roli r2, r2, 0x4
