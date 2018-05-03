@@ -14,7 +14,7 @@ main:
 # Algorithm Configurations
 movia r1, 0x100 # Table size in words = 2^8.
 movui r4, 0x8 # Number of divisions or number of bits operated together on CRC algorithm 
-movia r17, tabela # initial table position
+movia r17, 0x30000 # initial table position (given by JNios)
 # Initializing r9 to hold the poly
 movui r9, 0x04C1
 slli r9, r9, 0x10
@@ -45,10 +45,9 @@ next_div:
   
 andhi r6, r3, 0x8000 # compare msb
 slli r3, r3, 0x1
-beq r0, r6, dont_xor
+beq r0, r6, 0x4
 xor r3, r3, r9
-dont_xor:
-  addi r5, r5, 0x1
+addi r5, r5, 0x1
 br next_div
 
 store_number:
@@ -69,10 +68,7 @@ br next_number
 calc_crc: 
   movia r1, msg
 
-#movia r2, 0xFFFFFFFF # initial xor
-ori r2, r2, 0xFFFF
-slli r2, r2, 0x10
-ori r2, r2, 0xFFFF
+movia r2, 0xFFFFFFFF # initial xor
 
 movi r3, 0x0 # i
 
@@ -111,9 +107,12 @@ addi r3, r3, 0x1 # increment iteration counter
 br crc_loop
 
 final_xor:
-movia r20, 0x5020
+  xori r2, r2, 0x0
 
-stw r2, 0x0(r20) # CONFERIR ENDEREÇO LED
+# Rotates bits to show crc from MSB to LSB
+# roli r2, r2, 0x4 # CONFERIR RESULTADO E MODO DE EXIBIÇÃO
+
+stw r2, 0x810(r0) # CONFERIR ENDEREÇO LED
 
 # Ler botao em espera ocupada
 
@@ -122,32 +121,32 @@ mov r13, r0
 
 # r12 lê estado atual do botão
 ler_botao:
-  ldb r12, 0x10(r20) # CONFERIR ENDEREÇO BOTAO
+  ldb r12, 0x840(r0) # CONFERIR ENDEREÇO BOTAO
 
 beq r12, r13, ler_botao
 
 mov r13, r12
 
+bne r12, r0, ler_botao
+
 # Se passou daqui, da um delayzinho (debounce) e lê de novo.
 
-movia r14, 0xFFFFF # r14 armazena um valor a ser decrementado para alcançar um delay
+movi r14, 100 # r14 armazena um valor a ser decrementado para alcançar um delay
 
 delay:
-subi r14, r14, 0x1
+subi r14, r14, 1
 bne r14, r0, delay
 
 # Se a nova leitura for igual significa que o sinal estabilizou e é pra passar mesmo, então segue o código.
 
-ldb r14, 0x10(r20)
+ldb r14, 0x840(r0)
 
 bne r14, r12, ler_botao
-
-beq r12, r0, ler_botao
 
 # Se a leitura for diferente, ou era ruído (volta pra ler_botao) ou tá muito grande o delay, a gente diminui o delay
 
 roli r2, r2, 0x4
 
-stw r2, 0x0(r20) # CONFERIR ENDEREÇO LED
+stw r2, 0x810(r0) # CONFERIR ENDEREÇO LED
 
 br ler_botao
