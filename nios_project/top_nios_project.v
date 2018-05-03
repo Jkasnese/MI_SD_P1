@@ -5,7 +5,7 @@ module top_nios_project (
 
 	input		btn_external_connection_export;
 	input		clk_clk;
-	output	[3:0]	leds_external_connection_export;
+	output	[7:0]	leds_external_connection_export;
 	
 	nios_project nios (
 		.btn_external_connection_export  (btn_external_connection_export),  // botao passar leds

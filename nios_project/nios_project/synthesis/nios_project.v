@@ -6,7 +6,7 @@
 module nios_project (
 		input  wire       btn_external_connection_export,  //  btn_external_connection.export
 		input  wire       clk_clk,                         //                      clk.clk
-		output wire [3:0] leds_external_connection_export  // leds_external_connection.export
+		output wire [7:0] leds_external_connection_export  // leds_external_connection.export
 	);
 
 	wire         nios2_gen2_0_debug_reset_request_reset;                      // nios2_gen2_0:debug_reset_request -> rst_controller:reset_in0

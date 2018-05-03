@@ -35,7 +35,7 @@ module nios_project_onchip_memory2_0 (
                                      )
 ;
 
-  parameter INIT_FILE = "nios_project_onchip_memory2_0.hex";
+  parameter INIT_FILE = "/home/guiga/Desktop/Guiga/UEFEY/6_semestre_sd/MI_SD/P1/Guilherme/MI_SD_P1/nios_project/crc_mem.hex";
 
 
   output  [ 31: 0] readdata;

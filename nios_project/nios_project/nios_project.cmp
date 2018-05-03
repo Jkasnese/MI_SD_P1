@@ -2,7 +2,7 @@
 		port (
 			btn_external_connection_export  : in  std_logic                    := 'X'; -- export
 			clk_clk                         : in  std_logic                    := 'X'; -- clk
-			leds_external_connection_export : out std_logic_vector(3 downto 0)         -- export
+			leds_external_connection_export : out std_logic_vector(7 downto 0)         -- export
 		);
 	end component nios_project;
 

@@ -41,8 +41,8 @@ agreement for further details.
 	(port
 		(pt 0 152)
 		(output)
-		(text "leds_external_connection_export[3..0]" (rect 0 0 149 12)(font "Arial" (font_size 8)))
-		(text "leds_external_connection_export[3..0]" (rect 4 141 226 152)(font "Arial" (font_size 8)))
+		(text "leds_external_connection_export[7..0]" (rect 0 0 149 12)(font "Arial" (font_size 8)))
+		(text "leds_external_connection_export[7..0]" (rect 4 141 226 152)(font "Arial" (font_size 8)))
 		(line (pt 0 152)(pt 208 152)(line_width 3))
 	)
 	(drawing

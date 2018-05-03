@@ -6,5 +6,5 @@ module nios_project (
 
 	input		btn_external_connection_export;
 	input		clk_clk;
-	output	[3:0]	leds_external_connection_export;
+	output	[7:0]	leds_external_connection_export;
 endmodule
