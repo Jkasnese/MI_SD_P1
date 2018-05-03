@@ -76,14 +76,6 @@
          type = "int";
       }
    }
-   element leds.s1
-   {
-      datum baseAddress
-      {
-         value = "20512";
-         type = "String";
-      }
-   }
    element btn.s1
    {
       datum baseAddress
@@ -105,6 +97,14 @@
          type = "String";
       }
    }
+   element leds.s1
+   {
+      datum baseAddress
+      {
+         value = "20512";
+         type = "String";
+      }
+   }
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
@@ -120,7 +120,7 @@
  <parameter name="projectName" value="nios_project_13.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1525320780088" />
+ <parameter name="timeStamp" value="1525355423422" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -317,7 +317,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
+  <parameter name="width" value="4" />
   <parameter name="clockRate" value="50000000" />
  </module>
  <module
