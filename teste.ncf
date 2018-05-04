@@ -4,7 +4,7 @@
         <system_info filepath="true">nios_project_13/nios_project_13.sopcinfo</system_info>
         <system_sof filepath="true">nios_project_13/output_files/nios_project_13.sof</system_sof>
         <system_jdi filepath="true"/>
-        <cable>USB-Blaster [1-1.4]</cable>
+        <cable>null</cable>
         <processor JTAGHubInstanceID="0">nios2_qsys_0</processor>
         <elf_section name="text">
             <memory_device>onchip_memory2_0/s1</memory_device>
@@ -20,7 +20,7 @@
         <type>ASSEMBLY</type>
         <options>
             <source_files>
-                <source_file filepath="true">teste.s</source_file>
+                <source_file filepath="true">crc_tab_calc.s</source_file>
             </source_files>
             <start_symbol>main</start_symbol>
         </options>

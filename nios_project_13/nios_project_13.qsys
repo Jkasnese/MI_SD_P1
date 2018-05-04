@@ -76,11 +76,11 @@
          type = "int";
       }
    }
-   element btn.s1
+   element leds.s1
    {
       datum baseAddress
       {
-         value = "20528";
+         value = "20512";
          type = "String";
       }
    }
@@ -97,11 +97,11 @@
          type = "String";
       }
    }
-   element leds.s1
+   element btn.s1
    {
       datum baseAddress
       {
-         value = "20512";
+         value = "20528";
          type = "String";
       }
    }
@@ -120,7 +120,7 @@
  <parameter name="projectName" value="nios_project_13.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1525355423422" />
+ <parameter name="timeStamp" value="1525395570553" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -246,8 +246,8 @@
   <parameter name="tightlyCoupledInstructionMaster1AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x4000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x4800' end='0x5000' /><slave name='leds.s1' start='0x5020' end='0x5030' /><slave name='btn.s1' start='0x5030' end='0x5040' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x5048' end='0x5050' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x4000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x4800' end='0x5000' /><slave name='leds.s1' start='0x5020' end='0x5030' /><slave name='btn.s1' start='0x5030' end='0x5040' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x5048' end='0x5050' /></address-map>]]></parameter>
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x1000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x4800' end='0x5000' /><slave name='leds.s1' start='0x5020' end='0x5030' /><slave name='btn.s1' start='0x5030' end='0x5040' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x5048' end='0x5050' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x1000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x4800' end='0x5000' /><slave name='leds.s1' start='0x5020' end='0x5030' /><slave name='btn.s1' start='0x5030' end='0x5040' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x5048' end='0x5050' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone IV E" />
   <parameter name="internalIrqMaskSystemInfo" value="32" />
@@ -274,7 +274,7 @@
   <parameter name="initMemContent" value="true" />
   <parameter name="initializationFileName">/home/guiga/Desktop/Guiga/UEFEY/6_semestre_sd/MI_SD/P1/Guilherme/MI_SD_P1/crc_mem.hex</parameter>
   <parameter name="instanceID" value="NONE" />
-  <parameter name="memorySize" value="16384" />
+  <parameter name="memorySize" value="4096" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />
   <parameter name="simAllowMRAMContentsFile" value="false" />
   <parameter name="simMemInitOnlyFilename" value="0" />

@@ -136,7 +136,7 @@ module nios_project_13_addr_router
     // Figure out the number of bits to mask off for each slave span
     // during address decoding
     // -------------------------------------------------------
-    localparam PAD0 = log2ceil(64'h4000 - 64'h0); 
+    localparam PAD0 = log2ceil(64'h1000 - 64'h0); 
     localparam PAD1 = log2ceil(64'h5000 - 64'h4800); 
     localparam PAD2 = log2ceil(64'h5030 - 64'h5020); 
     localparam PAD3 = log2ceil(64'h5040 - 64'h5030); 
@@ -189,7 +189,7 @@ module nios_project_13_addr_router
         // Sets the channel and destination ID based on the address
         // --------------------------------------------------
 
-    // ( 0x0 .. 0x4000 )
+    // ( 0x0 .. 0x1000 )
     if ( {address[RG:PAD0],{PAD0{1'b0}}} == 15'h0   ) begin
             src_channel = 5'b00010;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
